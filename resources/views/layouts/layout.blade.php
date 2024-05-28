@@ -29,10 +29,15 @@
   {{-- navbar --}}
   @include('layouts.navbar')
   {{-- akhir navbar --}}
-
+  
   {{-- content --}}
   @yield('content')
   {{-- akhir content --}}
+  
+  {{-- footer --}}
+  @include('layouts.footer')
+  {{-- akhir footer --}}
+
 
   <script>
     $('#summernote').summernote({

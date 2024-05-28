@@ -1,8 +1,8 @@
-<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar bg-dark border-bottom border-body sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <div>
-      <a class="navbar-brand text-white " href="/">
-        <h1>Memo Online</h1>
+      <a class="navbar-brand text-white " href="/note">
+        <h1>Note Online</h1>
       </a>
     </div>
     <div>

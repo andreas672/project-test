@@ -13,35 +13,16 @@ class NotesController extends Controller
     //
     public function index()
     {
-        // $notes = note::orderBy('id', 'desc')->get();
-        // $notes = $user->notes;
-        
-        // $user = Auth::user();
-        // $notes = $user ? $user->notes : NULL;
-        // $total = $notes ? $notes->count() : 0;
-        // return view('home', compact(['notes', 'total']));
-        
-        
         $user = Auth::user();
+        $notes = $user->notes;
+    
+        return view('home', compact(['notes']));
         
-        // Memeriksa apakah pengguna telah login
-        if ($user) {
-            // Jika pengguna telah login, ambil catatan (notes) milik pengguna tersebut
-            $notes = $user->notes;
-            
-            // Kirim data catatan (notes) ke view
-            $total = note::count();
-            return view('home', compact(['notes', 'total']));
-        } else {
-            // Jika pengguna belum login, kembalikan ke halaman login
-            return redirect()->route('home');
-        }
-
     }
 
     public function create()
     {
-        return view('create');
+        return view('crud.create');
     }
  
     public function save(Request $request)
@@ -55,7 +36,7 @@ class NotesController extends Controller
         [
             'title.required' => 'judul harus diisi',
             'description.required' => 'deskripsi tidak boleh kosong',
-            'text.required' => 'Masukkan isi Memo',
+            'text.required' => 'Masukkan isi Note',
 
         ]);
 
@@ -64,39 +45,23 @@ class NotesController extends Controller
         $note->description = $request->description;
         $note->date = NOW();
         $note->text = $request->text;
-        $note->user_id = Auth::id(); // Set user_id to the currently logged-in user's ID
+        $note->user_id = Auth::id();
         $note->save();
 
         return redirect()->route('home')->with('success', 'Note created successfully.');
 
-        // $data = note::create([
-        //     'title'       => $request->title,
-        //     'description' => $request->description,
-        //     'date'        => NOW(),
-        //     'text'        => $request->text,
-        //     'user_id'     => $request->Auth::id()
-        // ]);
-
-        // // $data = note::create($validation);
-        // if ($data) {
-        //     session()->flash('success', 'Memo Add Successfully');
-        //     return redirect(route('home'));
-        // } else {
-        //     session()->flash('error', 'Some problem occure');
-        //     return redirect(route('create'));
-        // }
     }
 
     public function show($id) 
     {
         $notes = note::findOrFail($id);
-        return view('show', compact('notes'));
+        return view('crud.show', compact('notes'));
     }
 
     public function edit($id)
     {
         $notes = note::findOrFail($id);
-        return view('edit', compact('notes'));
+        return view('crud.edit', compact('notes'));
     }
 
     public function update(Request $request, $id)
@@ -110,7 +75,7 @@ class NotesController extends Controller
         [
             'title.required' => 'judul harus diisi',
             'description.required' => 'deskripsi tidak boleh kosong',
-            'text.required' => 'Masukkan isi Memo',
+            'text.required' => 'Masukkan isi note',
 
         ]);
 
@@ -124,10 +89,9 @@ class NotesController extends Controller
         $notes->description = $description;
         $notes->text        = $text;
         $notes->date        = NOW();
-        // $notes->user_id = Auth::id();
         $data = $notes->save();
         if ($data) {
-            session()->flash('success', 'Memo Update Successfully');
+            session()->flash('success', 'Note Update Successfully');
             return redirect(route('home'));
         }
     }
@@ -136,7 +100,7 @@ class NotesController extends Controller
     {
         $notes = note::findOrFail($id)->delete();
         if ($notes) {
-            session()->flash('success', 'Memo Deleted Successfully');
+            session()->flash('success', 'Note Deleted Successfully');
             return redirect(route('home'));
         }
     }

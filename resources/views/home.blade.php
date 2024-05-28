@@ -10,7 +10,6 @@
     @endif
 
     @if ($notes->isEmpty())
-
     <div class="d-flex justify-content-center align-items-center">
         <div class="jumbotron text-center rounded">
             <h1 class="display-6">You Don't Have notes</h1>
@@ -26,7 +25,7 @@
     @else
     <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded">
         <div>
-            <h1 class="h4">Your notes ( {{$total}} )</h1>
+            <h1 class="h4">Your notes </h1>
         </div>
         <div>
             <a href="{{ route('create') }}" class="btn btn-primary">Add New</a>

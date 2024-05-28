@@ -12,9 +12,8 @@
                 <p>{{ $notes->description }}</p>
             </div>
             <div class="my-2">
-                <label for="memo" class="font-weight-bold">NOTES</label>
                 <div class="border rounded p-3">
-                    <div class="border-top border-primary pt-3">{!! $notes->text !!}</div>
+                    <div class="border border-primary pt-3">{!! $notes->text !!}</div>
                 </div>
             </div>
             <a href="{{ route('edit', ['id'=>$notes->id]) }}" class="btn btn-success mt-3">Edit Notes</a>
