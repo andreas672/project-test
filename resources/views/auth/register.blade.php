@@ -1,4 +1,5 @@
 @extends('layouts.newlayout')
+@section('title', 'Register')
 
 @section('login')
 

@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Your memo')
 
 @section('content')
 

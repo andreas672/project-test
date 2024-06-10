@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('title', 'Create Memo')
 @section('content')
 
 <div class="container my-5">
