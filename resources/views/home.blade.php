@@ -47,7 +47,7 @@
             <tbody>
                 @foreach ($notes as $index => $note)
                 <tr>
-                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $index + 1 + (($notes->currentPage() - 1) * $notes->perPage()) }}</td>
                     <td>{{ $note->title }}</td>
                     <td>{{ $note->description }}</td>
                     <td>{{ $note->date }}</td>
@@ -65,6 +65,10 @@
             </tbody>
         </table>
     </div>
+    <div class="d-flex justify-content-center mt-4">
+        {{ $notes->links() }}
+    </div>
     @endif
 </div>
+
 @endsection
