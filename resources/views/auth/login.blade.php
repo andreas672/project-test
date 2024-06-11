@@ -36,9 +36,9 @@
 
         <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
 
-        {{-- @if (Route::has('password.request'))
+        @if (Route::has('password.request'))
             <a href="{{ route('password.request') }}" id="forgot_pswd">{{ __('Forgot password?') }}</a>
-        @endif --}}
+        @endif
 
         <hr>
         <!-- <p>Don't have an account!</p>  -->

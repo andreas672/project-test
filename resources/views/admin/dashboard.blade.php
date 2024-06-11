@@ -46,7 +46,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->notes_count }}</td>
-                            <td>{{ $user->created_at->format('d-m-Y') }}</td>
+                            <td>{{ $user->created_at->format('j M, Y') }}</td>
                             <td>
                                 <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
                                     @csrf

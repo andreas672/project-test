@@ -39,6 +39,7 @@
                     <th scope="col">Note Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Last Update</th>
                     <th scope="col">View</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
@@ -51,6 +52,7 @@
                     <td>{{ $note->title }}</td>
                     <td>{{ $note->description }}</td>
                     <td>{{ $note->date }}</td>
+                    <td>{{ $note->updated_at->format('j M, Y H:i ') }}</td>
                     <td>
                         <a href="{{ route('show', ['id' => $note->id]) }}" class="btn btn-info btn-sm">View</a>
                     </td>

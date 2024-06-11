@@ -18,22 +18,26 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
 
+
+  {{-- <script src="https://cdn.tiny.cloud/1/oxby0qaqz9g7fti2igb3tmyds1pkg15fgq5zh4tdm0hb533w/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script> --}}
+  
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
-  {{-- @vite('resources/css/app.css') --}}
+   {{-- @vite('resources/css/app.css') --}}
 
 </head>
 
 <body>
+
   {{-- navbar --}}
   @include('layouts.navbar')
   {{-- akhir navbar --}}
-  
+
   {{-- content --}}
   @yield('content')
   {{-- akhir content --}}
-  
+
   {{-- footer --}}
   @include('layouts.footer')
   {{-- akhir footer --}}
@@ -54,6 +58,12 @@
               // ]
             });
   </script>
+
+  {{-- <script>
+    tinymce.init({
+      selector: 'textarea#summernote'
+    });
+  </script> --}}
 
 </body>
 
