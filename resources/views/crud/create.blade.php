@@ -2,8 +2,8 @@
 @section('title', 'Create Memo')
 @section('content')
 
-<div class="container my-5">
-    <div class="shadow p-4">
+<div class="container my-2">
+    <div class="shadow p-2">
         @if (session()->has('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
@@ -11,7 +11,7 @@
         @endif
         <a href="{{ route('home') }}" class="btn btn-danger mb-3">Go Back</a>
         <div class="my-3">
-            <h1 class="text-center display-4">Create Notes</h1>
+            <h1 class="text-center display-6">Create Notes</h1>
             <form action="" method="POST">
                 @csrf
                 <div class="form-row mt-5">

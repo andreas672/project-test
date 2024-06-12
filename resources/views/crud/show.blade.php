@@ -1,23 +1,29 @@
 @extends('layouts.layout')
+
 @section('title', 'Your memo')
 
 @section('content')
 
 <div class="container my-5">
-    <div class="shadow py-4 px-5">
-        <a href="{{ route('home') }}" class="btn btn-danger mb-3">Go Back</a>
-        <div class="my-3">
-            <h1 class="text-center display-4">{{ $notes->title }}</h1>
-            <div class="my-4">
-                <label for="description" class="font-weight-bold">Description</label>
-                <p>{{ $notes->description }}</p>
+    <div class="card shadow py-4 px-5">
+        <div class="mb-3">
+            <a href="{{ route('home') }}" class="btn btn-danger">Go Back</a>
+        </div>
+        <div class="text-center mb-4">
+            <h1 class="display-5 font-weight-bold">{{ $notes->title }}</h1>
+        </div>
+        <div class="mb-4">
+            <label for="description" class="font-weight-bold">Description</label>
+            <p class="border p-3 rounded">{{ $notes->description }}</p>
+        </div>
+        <div class="mb-4">
+            <label for="text" class="font-weight-bold">Text</label>
+            <div class="border rounded" >
+                <div class="border border-dark " style="min-height: 200px;">{!! $notes->text !!}</div>
             </div>
-            <div class="my-2">
-                <div class="border rounded p-3">
-                    <div class="border border-primary pt-3">{!! $notes->text !!}</div>
-                </div>
-            </div>
-            <a href="{{ route('edit', ['id'=>$notes->id]) }}" class="btn btn-success mt-3">Edit Notes</a>
+        </div>
+        <div >
+            <a href="{{ route('edit', ['id' => $notes->id]) }}" class="btn btn-success mt-3">Edit Notes</a>
         </div>
     </div>
 </div>

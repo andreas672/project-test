@@ -2,7 +2,7 @@
 @section('title', 'Dashboard Admin')
 
 
-@section('login')
+@section('content')
 <div class="container mt-5">
     <div class="d-flex justify-content-between mb-4">
         <h1 class="h3">Admin Dashboard</h1>

@@ -1,7 +1,7 @@
 @extends('layouts.newlayout')
 @section('title', 'login')
 
-@section('login')
+@section('content')
 
 <div id="logreg-forms">
     <form method="POST" action="{{ route('login') }}" class="form-signin">
